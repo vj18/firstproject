@@ -23,7 +23,7 @@ import Link from 'next/link'
         <Link href="/about" id='about'className={menuitem=='about' && 'active-menu'} onClick={fnclick}>About Us</Link>
       </li>
       <li>
-        <Link href="/content" id='content'className={menuitem=='content' && 'active-menu'} onClick={fnclick}>Contact</Link>
+        <Link href="/content" className={menuitem=='content' && 'active-menu'} id='content' onClick={fnclick}>Contact</Link>
       </li>
     </ul>
     )
