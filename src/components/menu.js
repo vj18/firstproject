@@ -1,18 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 
 
   export const Menu=() =>{
+    const[menuitem,setMenuItem]=useState('')
+
+    useEffect(()=>{
+         let pathname=window.location.pathname
+         setMenuItem(pathname.slice(1) || 'home')
+    },[])
+
+    const fnclick=(eve)=>{
+      setMenuItem(eve.target.id)
+    }
     return (
           <ul className='menu'>
+          
       <li>
-        <Link href="/home">Home</Link>
+        <Link href="/home" id='home' className={menuitem=='home' && 'active-menu'} onClick={fnclick}>Home</Link>
       </li>
       <li>
-        <Link href="/about">About Us</Link>
+        <Link href="/about" id='about'className={menuitem=='about' && 'active-menu'} onClick={fnclick}>About Us</Link>
       </li>
       <li>
-        <Link href="/content">Contact</Link>
+        <Link href="/content" className={menuitem=='content' && 'active-menu'} id='content' onClick={fnclick}>Contact</Link>
       </li>
     </ul>
     )
